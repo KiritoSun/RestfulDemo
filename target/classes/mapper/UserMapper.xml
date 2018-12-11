@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- UserDao配置,sql语句 -->
+<mapper namespace="com.zt.dao.UserDao">
+    <select id="selectById" parameterType="String" resultType="com.zt.domain.User">
+        select * from user where u_id=#{id}
+    </select>
+    <select id="selectAll" resultType="com.zt.domain.User">
+        select * from user
+    </select>
+    <insert id="insertInfo" parameterType="com.zt.domain.User">
+        insert into user values (#{u_id},#{u_password},#{u_name},#{u_sex},#{u_phone})
+    </insert>
+    <delete id="deleteById" parameterType="String">
+        delete from user where u_id=#{id}
+    </delete>
+    <update id="updateInfo" parameterType="com.zt.domain.User">
+        update user set u_password=#{u_password},u_name=#{u_name},u_sex=#{u_sex},u_phone=#{u_phone} where u_id=#{u_id}
+    </update>
+</mapper>
